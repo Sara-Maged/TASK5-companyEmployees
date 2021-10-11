@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "projects", schema = "employeedb", catalog = "")
+@Table(name = "projects", schema = "employeedb")
 public class ProjectsEntity {
     private int id;
     private String projectName;
@@ -74,5 +74,15 @@ public class ProjectsEntity {
         result = 31 * result + (startDate != null ? startDate.hashCode() : 0);
         result = 31 * result + (appointedManger != null ? appointedManger.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "ProjectsEntity{" +
+                "id=" + id +
+                ", projectName='" + projectName + '\'' +
+                ", startDate=" + startDate +
+                ", appointedManger='" + appointedManger + '\'' +
+                '}';
     }
 }

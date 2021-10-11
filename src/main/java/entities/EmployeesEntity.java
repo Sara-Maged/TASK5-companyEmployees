@@ -3,7 +3,8 @@ package entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "employees", schema = "employeedb", catalog = "")
+@NamedQuery(name = "Employee.byRole", query = "select e from EmployeesEntity e where e.role = ?1")
+@Table(name = "employees", schema = "employeedb")
 public class EmployeesEntity {
     private int id;
     private String name;
@@ -111,5 +112,18 @@ public class EmployeesEntity {
         result = 31 * result + (int) (nationalId ^ (nationalId >>> 32));
         result = 31 * result + (role != null ? role.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "EmployeesEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", age=" + age +
+                ", nationalId=" + nationalId +
+                ", role='" + role + '\'' +
+                '}';
     }
 }
