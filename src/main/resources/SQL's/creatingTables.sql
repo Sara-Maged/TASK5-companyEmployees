@@ -20,7 +20,7 @@ create table projects
         primary key (id)
 );
 
-create table table_name
+create table project_employee
 (
     id int auto_increment,
     employee_id int null,
