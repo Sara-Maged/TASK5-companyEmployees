@@ -4,9 +4,10 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "project_employee", schema = "employeedb")
-
+//insert into project_employee (employee_id, project_id) values (4, 4)
 @NamedQuery(name = "Employee.byProj", query = "select e from EmployeesEntity e,ProjectEmployeeEntity ep, ProjectsEntity p " +
         "where p.projectName= ?1 AND e.id=ep.employee_id AND ep.project_id=p.id")
+//@NamedQuery(name = 'EmpToProj', query = "insert into project_employee(employee_id, project_id) values(4, 4)")
 public class ProjectEmployeeEntity {
     private int id;
     private int employee_id;
