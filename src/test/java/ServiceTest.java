@@ -41,8 +41,11 @@ class ServiceTest {
         List<EmployeesEntity> list = new ArrayList<EmployeesEntity>();
         List<EmployeesEntity> spyList = Mockito.spy(list);
 
-        Mockito.doReturn(100).when(spyList).size();
-        assertEquals(100, spyList.size());
+        list = service.getEmployeesByRole();
+        int actual = list.size();
+
+        Mockito.doReturn(2).when(spyList).size();
+        assertEquals(actual, spyList.size());
     }
 
     @Test
@@ -54,78 +57,3 @@ class ServiceTest {
     void getEmployeesByRolePage() {
     }
 }
-
-
-
-
-//    private EntityManager entityManager;
-//    private EntityTransaction transaction;
-//    private Query query;
-//
-//    @Before
-//    public void setUp(){
-//        entityManager = mock(EntityManager.class);
-//        transaction = mock(EntityTransaction.class);
-//        query = mock(Query.class);
-//    }
-//
-//    @Test
-//    public void persist() {
-//        //Employment employment = createEmployment(1, "test user");
-//        EmployeesEntity employment = new EmployeesEntity();
-//
-//        TypedQuery<EmployeesEntity> empByRoleQuery = entityManager.createNamedQuery("Employee.byRole", EmployeesEntity.class);
-//        empByRoleQuery.setParameter(1, "SE");
-//
-//        //Expectations
-//        when(entityManager.getTransaction()).thenReturn(transaction);
-//        doNothing().when(entityManager).persist(employment);
-//
-//        EmploymentDaoJpa daoJpa = new EmploymentDaoJpa();
-//        daoJpa.setEntityManager(entityManager);
-//        EmployeesEntity actual = daoJpa.persist(employment);
-//
-//        assertSame(employment, actual);
-//        verify(entityManager).persist(employment);
-//    }
-//
-//    @Mock
-//    private Service underTest;
-//    //private AutoCloseable autoCloseable;
-//
-//    @BeforeEach
-//    void Setup(){
-//        //autoCloseable =
-//
-//        MockitoAnnotations.initMocks(this);
-//        underTest = new Service();
-//    }
-//
-//    @Test
-//    void CanGetEmployeesByRole() {
-//        underTest.getEmployeesByRole();
-//        assertEquals(underTest.getEmployeesByRole(),
-//                underTest.getEmployeesByRole()
-//        );
-//    }
-
-//    @InjectMocks private Service dbConnection; // review
-//    @Mock private Connection mockConnection;
-//    @Mock private Statement mockStatement;
-//
-//    @Before
-//    public void setUp() {
-//        MockitoAnnotations.initMocks(this);
-//    }
-
-//    @Test
-//    public void testMockDBConnection() throws Exception {
-//        Mockito.when(mockConnection.createStatement()).thenReturn(mockStatement);
-//        Mockito.when(mockConnection.createStatement().executeUpdate(Mockito.any())).thenReturn(1);
-//        int value;
-//        //Assert.assertEquals(value, 1);
-//        Mockito.verify(mockConnection.createStatement(), Mockito.times(1));
-//    }
-
-
-
