@@ -37,17 +37,6 @@ class ServiceTest {
     }
 
     @Test
-    public void whenStubASpy_thenStubbed() {
-        List<String> list = new ArrayList<String>();
-        List<String> spyList = Mockito.spy(list);
-
-        assertEquals(0, spyList.size());
-
-        Mockito.doReturn(100).when(spyList).size();
-        assertEquals(100, spyList.size());
-    }
-
-    @Test
     void getEmployeesByRole() {
         List<EmployeesEntity> list = new ArrayList<EmployeesEntity>();
         List<EmployeesEntity> spyList = Mockito.spy(list);
