@@ -1,1 +1,10 @@
-service\QServiceClass.class
+entities\ProjectsEntity.class
+Controller\ServiceClass.class
+Controller\Paginator.class
+Main.class
+entities\EmployeesEntity.class
+service\Service.class
+Controller\EmployeeResources.class
+com\example\task5\HelloResource.class
+entities\ProjectEmployeeEntity.class
+com\example\task5\HelloApplication.class
