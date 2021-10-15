@@ -55,5 +55,8 @@ class ServiceTest {
 
     @Test
     void getEmployeesByRolePage() {
+        Paginator page = new Paginator(1, 1);
+        int actual = page.getIndex();
+        assertEquals(actual, 1);
     }
 }
