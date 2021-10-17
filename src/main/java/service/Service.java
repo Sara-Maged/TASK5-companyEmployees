@@ -59,29 +59,4 @@ public class Service {
 
 }
 
-//        int pageNumber = 1;
-//        int pageSize = 10;
-//        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-//
-//        CriteriaQuery<Long> countQuery = criteriaBuilder
-//                .createQuery(Long.class);
-//        countQuery.select(criteriaBuilder
-//                .count(countQuery.from(EmployeesEntity.class)));
-//        Long count = entityManager.createQuery(countQuery)
-//                .getSingleResult();
-//
-//        CriteriaQuery<EmployeesEntity> criteriaQuery = criteriaBuilder
-//                .createQuery(EmployeesEntity.class);
-//        Root<EmployeesEntity> from = criteriaQuery.from(EmployeesEntity.class);
-//        CriteriaQuery<EmployeesEntity> select = criteriaQuery.select(from);
-//
-//        TypedQuery<EmployeesEntity> typedQuery = entityManager.createQuery(select);
-//        while (pageNumber < count.intValue()) {
-//            typedQuery.setFirstResult(pageNumber - 1);
-//            typedQuery.setMaxResults(pageSize);
-//            System.out.println("Current page: " + typedQuery.getResultList());
-//            pageNumber += pageSize;
-
-//        }
-
 
