@@ -37,27 +37,6 @@ class ServiceTest {
 
     @Test
     void addEmpToProj() {
-        Service service = spy(Service.class);
-        List<EmployeesEntity> list = new ArrayList<EmployeesEntity>();
-        //List<EmployeesEntity> spyList = Mockito.spy(list);
-
-
-        EmployeesEntity insertedData = new EmployeesEntity();
-        //spyList.add(insertedData);
-
-        list.add(insertedData);
-
-//        when(service.addEmpToProj()).then(spyList.add(insertedData));
-        Mockito.doReturn(list).when(service).addEmpToProj();
-
-
-
-//        int TryOne = spyList.size();
-//        service.addEmpToProj();
-//        int TryTwo = spyList.size();
-
-        //Mockito.doReturn(2).when(spyList).size();
-        //assertNotEquals(TryOne, TryTwo);
     }
 
     @Test
