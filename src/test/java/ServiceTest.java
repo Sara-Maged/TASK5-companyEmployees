@@ -1,22 +1,10 @@
-
-
+import Controller.Paginator;
 import entities.EmployeesEntity;
-import org.junit.Assert;
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 import service.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
-import javax.persistence.TypedQuery;
-import java.sql.Connection;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,11 +13,15 @@ import static org.mockito.Mockito.*;
 
 class ServiceTest {
 
-    Service service = new Service();
+    @BeforeEach
+    void intiate(){
+
+    }
+
 
     @Test
     void getEmpByProj() {
-
+        Service service = new Service();
         String actual = service.getEmpByProj().toString();
         String expected = "[EmployeesEntity{id=5, name='Ahmed', email='ahmed@gmail.com', phone='0100479524', age=27, nationalId=20147985258742, role='SE'}]";
 
@@ -37,37 +29,67 @@ class ServiceTest {
     }
 
     @Test
-    public void whenStubASpy_thenStubbed() {
-        List<String> list = new ArrayList<String>();
-        List<String> spyList = Mockito.spy(list);
-
-        assertEquals(0, spyList.size());
-
-        Mockito.doReturn(100).when(spyList).size();
-        assertEquals(100, spyList.size());
-    }
-
-    @Test
     void getEmployeesByRole() {
+        Service service = new Service();
         List<EmployeesEntity> list = new ArrayList<EmployeesEntity>();
         List<EmployeesEntity> spyList = Mockito.spy(list);
 
-        Mockito.doReturn(100).when(spyList).size();
-        assertEquals(100, spyList.size());
+        list = service.getEmployeesByRole();
+        int actual = list.size();
+
+        Mockito.doReturn(2).when(spyList).size();
+        assertEquals(actual, spyList.size());
     }
 
     @Test
     void addEmpToProj() {
+        Service service = spy(Service.class);
+        List<EmployeesEntity> list = new ArrayList<EmployeesEntity>();
+        //List<EmployeesEntity> spyList = Mockito.spy(list);
 
+
+        EmployeesEntity insertedData = new EmployeesEntity();
+        //spyList.add(insertedData);
+
+        list.add(insertedData);
+
+//        when(service.addEmpToProj()).then(spyList.add(insertedData));
+        Mockito.doReturn(list).when(service).addEmpToProj();
+
+
+
+//        int TryOne = spyList.size();
+//        service.addEmpToProj();
+//        int TryTwo = spyList.size();
+
+        //Mockito.doReturn(2).when(spyList).size();
+        //assertNotEquals(TryOne, TryTwo);
     }
 
     @Test
     void getEmployeesByRolePage() {
+        Paginator page = new Paginator(1, 1);
+        int actual = page.getIndex();
+        assertEquals(actual, 1);
     }
+
+
+
 }
 
 
 
+
+//    @Test
+//    public void whenStubASpy_thenStubbed() {
+//        List<String> list = new ArrayList<String>();
+//        List<String> spyList = Mockito.spy(list);
+//
+//        assertEquals(0, spyList.size());
+//
+//        Mockito.doReturn(100).when(spyList).size();
+//        assertEquals(100, spyList.size());
+//    }
 
 //    private EntityManager entityManager;
 //    private EntityTransaction transaction;

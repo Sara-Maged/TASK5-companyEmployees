@@ -50,8 +50,8 @@ public class Service {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         TypedQuery<EmployeesEntity> empByRoleQuery = entityManager.createNamedQuery("Employee.byRole", EmployeesEntity.class)
-                .setMaxResults(2)
-                .setFirstResult(5);
+                .setMaxResults(size)
+                .setFirstResult(index);
         empByRoleQuery.setParameter(1, "SE");
 
         return empByRoleQuery.getResultList();
