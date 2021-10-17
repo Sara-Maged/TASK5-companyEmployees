@@ -34,9 +34,9 @@ public class EmployeeResources {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/postpage")
-    public Response getEmpWithPage( /*research Data transfer objects (DTOs) with jax-rs*/){
+    public Response getEmpWithPage(){
         Paginator page = new Paginator(1, 1);
-        return Response.ok(service.getEmployeesByRolePage(page.getIndex(), page.getSize() /*research pagination*/)).build();
+        return Response.ok(service.getEmployeesByRolePage(page.getIndex(), page.getSize())).build();
     }
 
 }
